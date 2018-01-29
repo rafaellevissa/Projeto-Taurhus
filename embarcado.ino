@@ -10,9 +10,7 @@
                                                                                                   
 #define ID_MQTT  "LeviHomeAut"     //id mqtt (para identificação de sessão)                            
 
-#define D7    13 //porta que conectamos o LED
-
-int led1= 15; 
+#define D7    13 //porta que conectamos o LED 
 
 // WIFI
 const char* SSID = "levi"; // SSID / nome da rede WI-FI que deseja se conectar
@@ -97,12 +95,12 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length)
     }
    
     //toma ação dependendo da string recebida:
-    //verifica se deve colocar nivel alto de tensão na saída led1:
+    //verifica se deve colocar nivel alto de tensão na saída :
     //IMPORTANTE: o Led já contido na placa é acionado com lógica invertida (ou seja,
     //enviar HIGH para o output faz o Led apagar / enviar LOW faz o Led acender)
     if (msg.equals("L"))
     {
-        digitalWrite(led1, HIGH);
+        digitalWrite(D7, HIGH);
         Serial.println("Led acionado");
         EstadoSaida = '1';
     }
@@ -110,7 +108,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length)
     //verifica se deve colocar nivel alto de tensão na saída led1:
     if (msg.equals("D"))
     {
-        digitalWrite(led1, LOW);
+        digitalWrite(D7, LOW);
         Serial.println("Led desligado");
         EstadoSaida = '0';
     }
