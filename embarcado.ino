@@ -199,8 +199,8 @@ void InitOutput(void)
 {
     //IMPORTANTE: o Led já contido na placa é acionado com lógica invertida (ou seja,
     //enviar HIGH para o output faz o Led apagar / enviar LOW faz o Led acender)
-    pinMode(led1, OUTPUT);
-    digitalWrite(led1, LOW);          
+    pinMode(D7, OUTPUT);
+    digitalWrite(D7, LOW);          
 }
  
  
